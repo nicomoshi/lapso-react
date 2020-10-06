@@ -11,7 +11,9 @@ const { Navigator, Screen } = createStackNavigator();
 
 
 
-const ExercisesStack = () => {
+const ExercisesStack = (navigation: any) => {
+    let exercise = navigation.route.params;
+
 
     return (
         <Navigator headerMode="none" >
@@ -23,6 +25,7 @@ const ExercisesStack = () => {
             <Screen
                 name="New"
                 component={NewExercise}
+                initialParams={{ exercise }}
             />
         </Navigator>
     );

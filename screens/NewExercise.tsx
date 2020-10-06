@@ -6,6 +6,7 @@ import { AppLoading } from 'expo';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/dev';
 import SaveButton from '../components/SaveButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Exercise from '../model/Exercise';
 
 
 const { width } = Dimensions.get('window')
@@ -17,19 +18,9 @@ const repsViewSize = width / 15
 const NewExercise = (navigation: any) => {
 
 
+    var exercise = navigation.route.params.exercise
 
-    console.log(navigation)
-    let exercise: Exercise = {
-        id: '',
-        name: '',
-        highIntensityMinutes: 0,
-        highIntensitySeconds: 0,
-        lowIntensityMinutes: 0,
-        lowIntensitySeconds: 0,
-        reps: 0
-    }
 
-    
 
 
     const colon = ":"
@@ -93,7 +84,7 @@ const NewExercise = (navigation: any) => {
                             onChangeText={text => {
                                 onChangeLowSeconds(text)
                                 exercise.lowIntensitySeconds = parseInt(text)
-                                console.log(exercise)
+
                             }}
                             value={lowSeconds}
                         />
@@ -104,7 +95,7 @@ const NewExercise = (navigation: any) => {
 
                 </LinearGradient>
             </View>
-            <SaveButton exercise={exercise}/>
+            <SaveButton {...navigation} exercise={exercise} />
             <View style={styles.backButton}>
                 <TouchableOpacity onPress={() => navigation.navigation.pop()}>
                     <Text style={styles.backButtonText}>{back}</Text>
@@ -117,7 +108,7 @@ const NewExercise = (navigation: any) => {
                         onChangeText={text => {
                             onChangeReps(text)
                             exercise.reps = parseInt(text)
-                            
+
                         }}
                         value={reps}
                     />

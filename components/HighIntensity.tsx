@@ -12,6 +12,7 @@ const timeTextSize = width / 4;
 const descTextSize = timeTextSize / 4;
 
 import * as SplashScreen from "expo-splash-screen";
+import Exercise from '../model/Exercise';
 
 SplashScreen.preventAutoHideAsync().catch(console.warn);
 
@@ -46,7 +47,7 @@ const HighIntensity = (navigation: any) => {
 
 
     var shouldTimerStart = true;
-    var exercise: Exercise = navigation.route.params.exercise;;
+    var exercise: Exercise = navigation.route.params.exercise;
 
     var durationInSecs = exercise.highIntensitySeconds
     var initializationTime = 100

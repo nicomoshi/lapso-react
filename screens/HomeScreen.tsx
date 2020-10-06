@@ -10,6 +10,7 @@ import Timers from '../components/Timers';
 
 
 import * as SplashScreen from "expo-splash-screen";
+import Exercise from '../model/Exercise';
 
 
 SplashScreen.preventAutoHideAsync().catch(console.warn);
@@ -19,9 +20,7 @@ SplashScreen.preventAutoHideAsync().catch(console.warn);
 const HomeScreen = (navigation: any) => {
 
 
-    var exercise: Exercise = navigation.route.params.exercise;
-    console.log(navigation.route.params)
-
+    let exercise = navigation.route.params.exercise;
 
     return (
         <LinearGradient

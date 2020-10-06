@@ -7,10 +7,12 @@ const buttonSize = width / 4;
 
 import * as firebase from 'firebase'
 import 'firebase/firestore';
+import Exercise from '../model/Exercise';
 
 
 
 const SaveButton = (navigation: any) => {
+    console.log(navigation)
     var exercise = navigation.exercise;
     console.log(navigation.exercise)
     async function addExercise(exercise: Exercise) {
@@ -33,7 +35,7 @@ const SaveButton = (navigation: any) => {
     return (<View style={styles.playView}>
         <TouchableOpacity onPress={() => {
             addExercise(exercise)
-            navigation.navigation.navigate('HomeStack', { exercise })
+            navigation.navigation.pop()
         }} >
             <Image source={require('../assets/save.png')} style={styles.playImage} />
         </TouchableOpacity>

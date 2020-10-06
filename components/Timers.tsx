@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { COLORS } from '../colours';
 import { AppLoading } from 'expo';
 import { useFonts, Nunito_400Regular } from '@expo-google-fonts/dev';
+import Exercise from '../model/Exercise';
 
 const { width } = Dimensions.get('window')
 const timeTextSize = width / 4;

@@ -10,6 +10,7 @@ const timeTextSize = width / 4;
 const descTextSize = timeTextSize / 4;
 
 import * as SplashScreen from "expo-splash-screen";
+import Exercise from '../model/Exercise';
 
 SplashScreen.preventAutoHideAsync().catch(console.warn);
 

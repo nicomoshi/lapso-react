@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import MyExercises from './screens/MyExercises';
 import { StyleSheet, View } from 'react-native';
 import Sidebar from './screens/Sidebar';
 import { useFonts, Nunito_600SemiBold } from '@expo-google-fonts/dev';
@@ -13,6 +12,7 @@ import 'firebase/firestore';
 
 import * as SplashScreen from "expo-splash-screen";
 import ExercisesStack from './routes/ExercisesStack';
+import Exercise from './model/Exercise';
 
 SplashScreen.preventAutoHideAsync().catch(console.warn);
 
@@ -23,6 +23,8 @@ const Drawer = createDrawerNavigator();
 
 const App = () => {
 
+
+  let exercise = new Exercise('123', 'hi', 2, 0, 2, 0, 5);
 
 
   const firebaseConfig = {
@@ -44,9 +46,9 @@ const App = () => {
     if (user != null) {
       console.log("We are authenticated now!");
     }
-
-    // Do other things
   });
+
+
 
   async function loginAnon() {
 
@@ -69,6 +71,7 @@ const App = () => {
     return <AppLoading />
   }
   else {
+
     return (
       <View style={styles.body}>
         <NavigationContainer>
@@ -78,8 +81,8 @@ const App = () => {
             labelStyle: { fontFamily: 'Nunito_600SemiBold', fontSize: 18.0 },
 
           }} drawerContent={props => <Sidebar {...props} />} overlayColor="transparent" drawerType={('back')} drawerStyle={styles.drawer} drawerPosition="right" initialRouteName="Home">
-            <Drawer.Screen name="Home" component={HomeStack} key='HomeStack' />
-            <Drawer.Screen name="My Exercises" component={ExercisesStack} />
+            <Drawer.Screen name="HomeStack" component={HomeStack} initialParams={exercise} />
+            <Drawer.Screen name="My Exercises" component={ExercisesStack} initialParams={exercise} />
           </Drawer.Navigator>
         </NavigationContainer>
       </View>

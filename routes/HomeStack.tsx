@@ -9,17 +9,9 @@ const { Navigator, Screen } = createStackNavigator();
 
 
 
-const HomeStack = () => {
+const HomeStack = (navigation: any) => {
 
-    let exercise: Exercise = {
-        id: '123',
-        name: 'hi',
-        highIntensityMinutes: 2,
-        highIntensitySeconds: 0,
-        lowIntensityMinutes: 2,
-        lowIntensitySeconds: 0,
-        reps: 5
-    }
+    let exercise = navigation.route.params;
 
 
     return (
@@ -34,8 +26,6 @@ const HomeStack = () => {
                 name="TimerScreen"
                 component={TimerScreen}
                 options={{ title: 'TimerScreen' }}
-
-
             />
         </Navigator>
     );

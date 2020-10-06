@@ -10,10 +10,15 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import Exercise from '../model/Exercise';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const ExerciseBox = (props: any) => {
+
+    var data: Exercise = props.data
+    var selectedExercise = new Exercise(data.id, data.name, data.highIntensityMinutes, data.highIntensitySeconds, data.lowIntensityMinutes, data.lowIntensitySeconds, data.reps)
+
     const leftSwipe = (progress: any, dragX: any) => {
         const scale = dragX.interpolate({
             inputRange: [1, 400],
@@ -37,12 +42,15 @@ const ExerciseBox = (props: any) => {
     }
     else {
         return (
+            <TouchableOpacity onPress={() => props.navigation.push('Home')}>
+                <Swipeable renderLeftActions={leftSwipe}>
 
-            <Swipeable renderLeftActions={leftSwipe}>
-                <View style={styles.container}>
-                    <Text style={styles.exerciseText}>{props.data.name}</Text>
-                </View>
-            </Swipeable>
+                    <View style={styles.container}>
+                        <Text style={styles.exerciseText}>{props.data.name}</Text>
+                    </View>
+
+                </Swipeable>
+            </TouchableOpacity>
         );
     }
 };
@@ -59,6 +67,7 @@ const styles = StyleSheet.create({
     },
     exerciseText: {
         color: 'white',
+        opacity: 0.9,
         fontFamily: 'Nunito_600SemiBold'
     },
     deleteBox: {

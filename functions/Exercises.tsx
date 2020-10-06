@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { auth, firestore } from 'firebase';
+import Exercise from '../model/Exercise';
 
 export function Exercises() {
     const [loading, setLoading] = useState(true); // Set loading to true on component mount

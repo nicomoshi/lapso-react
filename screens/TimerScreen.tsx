@@ -7,6 +7,7 @@ import HighIntensity from '../components/HighIntensity';
 import LowIntensity from '../components/LowIntensity';
 import Reps from '../components/Reps';
 import StopButton from '../components/StopButton';
+import Exercise from '../model/Exercise';
 
 
 const TimerScreen = (navigation: any) => {

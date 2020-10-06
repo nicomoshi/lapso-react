@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Image, Dimensions, View, TextInput, StyleSheet, Text } from 'react-native';
+import Exercise from '../model/Exercise';
 
 const { width } = Dimensions.get("window")
 

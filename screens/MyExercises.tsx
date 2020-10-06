@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { Exercises } from '../functions/Exercises';
+import Exercise from '../model/Exercise';
 
 
 
@@ -64,8 +65,8 @@ const MyExercises = (navigation: any) => {
                         <FlatList
                             data={data}
                             renderItem={({ item, index }) => {
-                                console.log(item)
-                                return <ExerciseBox data={item} handleDelete={() => deleteItem(index)} />;
+
+                                return <ExerciseBox {...navigation} data={item} handleDelete={() => deleteItem(index)} />;
                             }}
                             ItemSeparatorComponent={() => {
                                 return <View style={styles.seperatorLine}></View>;
@@ -115,6 +116,7 @@ const styles = StyleSheet.create({
         height: 1,
         width: '90%',
         alignSelf: 'center',
+        opacity: 0.1,
         backgroundColor: 'white',
     },
     addView: {
