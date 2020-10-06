@@ -56,7 +56,7 @@ const HighIntensity = (navigation: any) => {
 
 
     const [secsLeft, setSecsLeft] = useState<number>(durationInSecs);
-    const [delay, setDelay] = useState<number>(500);
+    const [delay, setDelay] = useState<number>(1000);
     const [pause, setPause] = useState<boolean>(true);
 
 
@@ -86,11 +86,10 @@ const HighIntensity = (navigation: any) => {
                     }
                     else {
                         setPause(false)
-                        if (exercise.reps < 1) {
+                        if (navigation.reps < 1) {
                             navigation.navigation.pop()
                         }
                         else {
-                            console.log('navigation reps' + navigation.reps)
                             navigation.reduceReps(navigation.reps - 1)
                             navigation.toggle()
                         }

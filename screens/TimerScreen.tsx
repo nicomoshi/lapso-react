@@ -11,9 +11,7 @@ import StopButton from '../components/StopButton';
 
 const TimerScreen = (navigation: any) => {
 
-    var [reps, setReps] = useState(6)
-
-    var exercise: Exercise = navigation.route.params.exercise
+    var [reps, setReps] = useState(navigation.route.params.exercise.reps)
 
 
     const reduceReps = (oneLess: number) => {
@@ -47,7 +45,7 @@ const CurrentTimer = (navigation: any) => {
 
 
 
-    if (!isEnabled) {
+    if (isEnabled) {
         return (
             <HighIntensity  {...navigation} toggle={toggleSwitch} reduceReps={reduceReps} reps={reps} />
         );

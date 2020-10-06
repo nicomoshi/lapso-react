@@ -51,7 +51,7 @@ const LowIntensity = (navigation: any) => {
 
 
     const [secsLeft, setSecsLeft] = useState<number>(durationInSecs);
-    const [delay, setDelay] = useState<number>(500);
+    const [delay, setDelay] = useState<number>(1000);
     const [pause, setPause] = useState<boolean>(true);
     const [showTimer, setShowTimer] = useState<boolean>(false);
     const [tagText, setTagText] = useState<string>('');

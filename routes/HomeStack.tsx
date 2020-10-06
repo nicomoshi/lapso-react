@@ -20,8 +20,6 @@ const HomeStack = () => {
         reps: 5
     }
 
-    let reps = 20
-
 
     return (
         <Navigator headerMode="none" >
@@ -29,13 +27,13 @@ const HomeStack = () => {
                 name="Home"
                 component={HomeScreen}
                 options={{ title: 'Home' }}
-                initialParams={{ exercise, reps }}
+                initialParams={{ exercise }}
             />
             <Screen
                 name="TimerScreen"
                 component={TimerScreen}
                 options={{ title: 'TimerScreen' }}
-                initialParams={{ exercise, reps }}
+
 
             />
         </Navigator>

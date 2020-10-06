@@ -38,7 +38,7 @@ const Reps = (navigation: any) => {
                         style={styles.repsInput}
                         onChangeText={text => {
                             onChangeHighMinutes(text)
-                            reps = parseInt(text)
+                            navigation.route.params.exercise.reps = parseInt(text)
                         }}
                         value={highMinutes}
                     />
