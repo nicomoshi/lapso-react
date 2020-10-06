@@ -71,10 +71,9 @@ const HighIntensity = (navigation: any) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [durationInSecs, initializationTime]);
 
-    // An Intelligent Wrapper for UseEffect and SetInterval, controls the timer ticks
-    // and watches for operations tide to the Timer ticks
+
     useInterval(
-        () => {
+        (callback: Function, delay: number | null) => {
             if (shouldTimerStart) {
                 if (secsLeft <= 0) {
                     if (highIntensityMinutes > 0) {

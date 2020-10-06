@@ -12,6 +12,7 @@ import 'firebase/firestore';
 
 
 import * as SplashScreen from "expo-splash-screen";
+import ExercisesStack from './routes/ExercisesStack';
 
 SplashScreen.preventAutoHideAsync().catch(console.warn);
 
@@ -77,8 +78,8 @@ const App = () => {
             labelStyle: { fontFamily: 'Nunito_600SemiBold', fontSize: 18.0 },
 
           }} drawerContent={props => <Sidebar {...props} />} overlayColor="transparent" drawerType={('back')} drawerStyle={styles.drawer} drawerPosition="right" initialRouteName="Home">
-            <Drawer.Screen name="Home" component={HomeStack} />
-            <Drawer.Screen name="My Exercises" component={MyExercises} />
+            <Drawer.Screen name="Home" component={HomeStack} key='HomeStack' />
+            <Drawer.Screen name="My Exercises" component={ExercisesStack} />
           </Drawer.Navigator>
         </NavigationContainer>
       </View>

@@ -5,12 +5,41 @@ import TimerScreen from '../screens/TimerScreen';
 const { width } = Dimensions.get('window')
 const buttonSize = width / 4;
 
-const SaveButton = (navigation:any) =>
-    <View style={styles.playView}>
-        <TouchableOpacity onPress={() => navigation.navigation.navigate('', {})} >
+import * as firebase from 'firebase'
+import 'firebase/firestore';
+
+
+
+const SaveButton = (navigation: any) => {
+    var exercise = navigation.exercise;
+    console.log(navigation.exercise)
+    async function addExercise(exercise: Exercise) {
+
+        const db = firebase.firestore();
+        let userUID = firebase.auth().currentUser?.uid
+        let doc = db.collection('users').doc(userUID).collection('exercises').doc()
+        doc.set({
+            uid: doc.id,
+            name: exercise.name,
+            highIntensityMinutes: exercise.highIntensityMinutes,
+            highIntensitySeconds: exercise.highIntensitySeconds,
+            lowIntensityMinutes: exercise.lowIntensityMinutes,
+            lowIntensitySeconds: exercise.lowIntensitySeconds,
+            reps: exercise.lowIntensitySeconds
+        })
+
+    }
+
+    return (<View style={styles.playView}>
+        <TouchableOpacity onPress={() => {
+            addExercise(exercise)
+            navigation.navigation.navigate('HomeStack', { exercise })
+        }} >
             <Image source={require('../assets/save.png')} style={styles.playImage} />
         </TouchableOpacity>
-    </View>;
+    </View>);
+}
+
 
 const styles = StyleSheet.create({
     playView: {

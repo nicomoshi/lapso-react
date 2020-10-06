@@ -1,4 +1,5 @@
 interface Exercise {
+    id: string;
     name: string;
     highIntensityMinutes: number;
     highIntensitySeconds: number;
@@ -6,4 +7,3 @@ interface Exercise {
     lowIntensitySeconds: number;
     reps: number;
 }
-

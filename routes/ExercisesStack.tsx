@@ -3,43 +3,30 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import TimerScreen from '../screens/TimerScreen';
+import MyExercises from '../screens/MyExercises';
+import NewExercise from '../screens/NewExercise';
 
 const { Navigator, Screen } = createStackNavigator();
 
 
 
 
-const HomeStack = () => {
-
-    let exercise: Exercise = {
-        id: '123',
-        name: 'hi',
-        highIntensityMinutes: 2,
-        highIntensitySeconds: 0,
-        lowIntensityMinutes: 2,
-        lowIntensitySeconds: 0,
-        reps: 5
-    }
-
+const ExercisesStack = () => {
 
     return (
         <Navigator headerMode="none" >
             <Screen
-                name="Home"
-                component={HomeScreen}
+                name="Exercises"
+                component={MyExercises}
                 options={{ title: 'Home' }}
-                initialParams={{ exercise }}
             />
             <Screen
-                name="TimerScreen"
-                component={TimerScreen}
-                options={{ title: 'TimerScreen' }}
-
-
+                name="New"
+                component={NewExercise}
             />
         </Navigator>
     );
 };
 
 
-export default HomeStack;
+export default ExercisesStack;

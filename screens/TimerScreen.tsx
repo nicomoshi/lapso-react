@@ -43,8 +43,6 @@ const CurrentTimer = (navigation: any) => {
     const reps = navigation.reps
 
 
-
-
     if (isEnabled) {
         return (
             <HighIntensity  {...navigation} toggle={toggleSwitch} reduceReps={reduceReps} reps={reps} />
