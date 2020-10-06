@@ -19,7 +19,7 @@ const Reps = (navigation: any) => {
         reps = exercise.reps
 
     } else {
-        reps = navigation.route.params.reps
+        reps = navigation.reps
 
     }
 
