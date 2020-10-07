@@ -6,7 +6,6 @@ import { AppLoading } from 'expo';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/dev';
 import SaveButton from '../components/SaveButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Exercise from '../model/Exercise';
 
 
 const { width } = Dimensions.get('window')
@@ -19,8 +18,6 @@ const NewExercise = (navigation: any) => {
 
 
     var exercise = navigation.route.params.exercise
-
-
 
 
     const colon = ":"
@@ -154,11 +151,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 10,
-        elevation: 10,
         borderColor: 'black',
         flexDirection: 'column'
     },
@@ -213,7 +205,6 @@ const styles = StyleSheet.create({
         width: repsViewSize,
         backgroundColor: 'black',
         borderRadius: repsViewSize,
-
     },
     repsInput: {
         fontSize: repsViewSize / 2,
